@@ -7,6 +7,7 @@ import { DlQueryType } from "../../enums";
 
 export async function callbackController(ctx: Context) {
     const callbackEvent = (ctx.callbackQuery! as CallbackQuery.DataQuery).data;
+    ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
     console.log(`Callback event : ${callbackEvent}`);
     let sessionId;
 
@@ -17,27 +18,44 @@ export async function callbackController(ctx: Context) {
         sessions.set(ctx.from?.username, sessionId);
     }
     console.log(`Session ID : ${sessionId}`);
+    ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
     const botmessage = await executeQuery(
         callbackEvent,
         sessionId,
         DlQueryType.Event
     );
     if (botmessage?.length) {
-        for (let message of botmessage) {
-            switch (message.type) {
-                case TelegramResponseType.Text:
-                    ctx.reply(message.message);
-                    break;
-                case TelegramResponseType.Card:
-                    if (message.image) {
-                        ctx.replyWithPhoto(message.image, message.buttons);
-                    } else {
-                        ctx.sendMessage(message.text, message.buttons);
+        for (let i = 0; i < botmessage.length; i++) {
+            setTimeout(() => {
+                ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
+                setTimeout(() => {
+                    ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
+                    if (botmessage[i].type === TelegramResponseType.Text) {
+                        ctx.reply(botmessage[i].message);
+                    } else if (
+                        botmessage[i].type === TelegramResponseType.Card
+                    ) {
+                        if (botmessage[i].image) {
+                            console.log(`image url: ${botmessage[i].image}`);
+                            ctx.replyWithPhoto(
+                                {
+                                    url: botmessage[i].image,
+                                },
+                                {
+                                    caption: botmessage[i].text,
+                                    parse_mode: "Markdown",
+                                    ...botmessage[i].buttons,
+                                }
+                            );
+                        } else {
+                            ctx.sendMessage(
+                                botmessage[i].text,
+                                botmessage[i].buttons
+                            );
+                        }
                     }
-                    break;
-                default:
-                    break;
-            }
+                }, 1000 * i);
+            }, 500 * i);
         }
     }
 }

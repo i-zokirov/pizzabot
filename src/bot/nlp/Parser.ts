@@ -1,10 +1,12 @@
 import { TelegramResponseType } from "../enums";
 import { FulfillmentMessage } from "../interfaces";
 import { Markup } from "telegraf";
+import { value, Value } from "pb-util";
+import fulfillments from "./fulfillments";
 
 class Parser {
     constructor(public messages: FulfillmentMessage[]) {}
-    parse() {
+    async parse() {
         this.messages = this.messages.filter(
             (msg) => msg.platform === "TELEGRAM"
         );
@@ -50,6 +52,17 @@ class Parser {
                         type: TelegramResponseType.Image,
                         url: msg.image?.imageUri,
                     });
+                    break;
+
+                case TelegramResponseType.Payload:
+                    // process fulfillment
+                    if (msg.payload && msg.payload.fields) {
+                        const fulfillment =
+                            msg.payload.fields.action.stringValue;
+                        if (fulfillment) {
+                            await fulfillments[fulfillment]();
+                        }
+                    }
                     break;
                 default:
                     break;

@@ -8,4 +8,5 @@ export enum TelegramResponseType {
     Card = "card",
     Image = "image",
     QuickReply = "quickReply",
+    Payload = "payload",
 }

@@ -12,6 +12,8 @@ declare global {
 }
 global.sessions = new Map();
 
+bot.use(Telegraf.log());
+
 bot.start(startController);
 bot.on(message("text"), handleMessage);
 bot.on(callbackQuery("data"), callbackController);

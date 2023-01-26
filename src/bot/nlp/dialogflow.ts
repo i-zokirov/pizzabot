@@ -68,6 +68,7 @@ export const executeQuery = async (
             contexts,
             type
         );
+
         contexts = intentResponse.queryResult?.outputContexts;
         let messages: FulfillmentMessage[];
         if (intentResponse.queryResult!.fulfillmentMessages) {

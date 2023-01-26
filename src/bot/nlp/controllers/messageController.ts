@@ -44,8 +44,14 @@ export async function handleMessage(ctx: Context) {
                                         `image url: ${botmessage[i].image}`
                                     );
                                     ctx.replyWithPhoto(
-                                        botmessage[i].image,
-                                        botmessage[i].buttons
+                                        {
+                                            url: botmessage[i].image,
+                                        },
+                                        {
+                                            caption: botmessage[i].text,
+                                            parse_mode: "Markdown",
+                                            ...botmessage[i].buttons,
+                                        }
                                     );
                                 } else {
                                     ctx.sendMessage(
