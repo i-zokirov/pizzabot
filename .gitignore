@@ -1,0 +1,6 @@
+node_modules
+.env
+src/keys/dialogflow.json
+dist
+./dist
+/dist

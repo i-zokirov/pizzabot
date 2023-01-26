@@ -1,0 +1,26 @@
+{
+    "name": "pizzabot",
+    "version": "1.0.0",
+    "description": "Telegram Bot built using Telegraf.js and Dialogflow ES API for natural language processing",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc",
+        "dev": "nodemon dist/index"
+    },
+    "author": "Ikboljon Zokirov",
+    "license": "ISC",
+    "dependencies": {
+        "@google-cloud/dialogflow": "^5.4.0",
+        "@types/express": "^4.17.16",
+        "@types/uuid": "^9.0.0",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "nanoid": "^4.0.0",
+        "nodemon": "^2.0.20",
+        "pb-util": "^1.0.3",
+        "telegraf": "^4.11.2",
+        "telegram": "^2.15.5",
+        "typescript": "^4.9.4",
+        "uuid": "^9.0.0"
+    }
+}
