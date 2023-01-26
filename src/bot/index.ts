@@ -1,6 +1,6 @@
 import { Telegraf } from "telegraf";
 import { message, callbackQuery } from "telegraf/filters";
-import { BOT_TOKEN } from "./config";
+import { BOT_TOKEN } from "../config";
 import { handleMessage } from "./nlp/controllers/messageController";
 import { callbackController } from "./nlp/controllers/callbackController";
 import { startController } from "./nlp/controllers/startController";
@@ -43,4 +43,9 @@ bot.help(async (ctx) => {
     return ctx.reply(info);
 });
 
+// Enable graceful stop
+process.once("SIGINT", () => bot.stop("SIGINT"));
+process.once("SIGTERM", () => bot.stop("SIGTERM"));
+
 export default bot;
+bot.launch();

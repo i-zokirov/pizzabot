@@ -1,6 +1,6 @@
 import dialogflow from "@google-cloud/dialogflow";
 import * as protos from "@google-cloud/dialogflow/build/protos/protos";
-import { dl_projectId, dl_languageCode } from "../config";
+import { dl_projectId, dl_languageCode } from "../../config";
 
 import { DlQueryType } from "../enums";
 import Parser from "./Parser";
