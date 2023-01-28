@@ -3,6 +3,8 @@ import { TelegramResponseType } from "../../enums";
 import { v4 as uuidv4 } from "uuid";
 import { executeQuery } from "../dialogflow";
 import { DlQueryType } from "../../enums";
+import getUser from "../dbfunctions/getUser";
+import { TelegramUser } from "../../interfaces";
 
 const keyboard = Markup.keyboard([
     Markup.button.callback("Menu", "open-menu"),
@@ -11,6 +13,8 @@ const keyboard = Markup.keyboard([
 
 export async function startController(ctx: Context) {
     console.log(ctx.from);
+    const user = await getUser(ctx.from as TelegramUser);
+    console.log(user);
     const sessionId = uuidv4();
     sessions.set(ctx.from!.username, sessionId);
 

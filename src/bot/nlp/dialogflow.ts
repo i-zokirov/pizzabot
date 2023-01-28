@@ -62,7 +62,7 @@ export const executeQuery = async (
             | protos.google.cloud.dialogflow.v2.IContext[]
             | null
             | undefined = [];
-        let intentResponse = await detecIntent(
+        const intentResponse = await detecIntent(
             sessionId,
             query,
             contexts,

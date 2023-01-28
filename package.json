@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "build": "tsc",
-        "dev": "nodemon dist/index"
+        "dev": "nodemon dist/index",
+        "seed:products": "node dist/database/seed/products"
     },
     "author": "Ikboljon Zokirov",
     "license": "ISC",
@@ -16,6 +17,7 @@
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
         "express-async-errors": "^3.1.1",
+        "mongoose": "^6.9.0",
         "nanoid": "^4.0.0",
         "nodemon": "^2.0.20",
         "pb-util": "^1.0.3",
