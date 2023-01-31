@@ -4,7 +4,7 @@ export interface IProduct {
     _id?: Types.ObjectId;
     name?: string;
     description?: string;
-    image?: string;
+    image: string;
     price: number;
 }
 
@@ -18,6 +18,7 @@ const productSchema = new Schema<IProduct>({
     },
     image: {
         type: String,
+        required: true,
     },
     price: {
         type: Number,

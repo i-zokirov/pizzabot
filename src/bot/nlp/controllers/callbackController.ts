@@ -4,9 +4,24 @@ import { v4 as uuidv4 } from "uuid";
 import { executeQuery } from "../dialogflow";
 import { CallbackQuery } from "telegraf/typings/core/types/typegram";
 import { DlQueryType } from "../../enums";
+import { BotResponse } from "../../interfaces";
+import * as protos from "@google-cloud/dialogflow/build/protos/protos";
+import { struct } from "pb-util";
 
 export async function callbackController(ctx: Context) {
-    const callbackEvent = (ctx.callbackQuery! as CallbackQuery.DataQuery).data;
+    let callbackEvent = (ctx.callbackQuery! as CallbackQuery.DataQuery).data;
+    let params: { [x: string]: any } = {
+        chatId: ctx.chat?.id,
+        firstName: ctx.from?.first_name,
+        lastName: ctx.from?.last_name,
+        userId: ctx.from?.id,
+    };
+
+    if (callbackEvent.includes(":")) {
+        params[callbackEvent.split(":")[1]] = callbackEvent.split(":")[2];
+        callbackEvent = callbackEvent.split(":")[0];
+    }
+
     ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
     console.log(`Callback event : ${callbackEvent}`);
     let sessionId;
@@ -18,44 +33,39 @@ export async function callbackController(ctx: Context) {
         sessions.set(ctx.from?.username, sessionId);
     }
     console.log(`Session ID : ${sessionId}`);
-    ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
-    const botmessage = await executeQuery(
+    params.sessionId = sessionId;
+    params = struct.encode(params);
+    const botResponses: BotResponse[] | undefined = await executeQuery(
         callbackEvent,
         sessionId,
-        DlQueryType.Event
+        DlQueryType.Event,
+        params as protos.google.protobuf.IStruct
     );
-    if (botmessage?.length) {
-        for (let i = 0; i < botmessage.length; i++) {
-            setTimeout(() => {
-                ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
-                setTimeout(() => {
-                    ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
-                    if (botmessage[i].type === TelegramResponseType.Text) {
-                        ctx.reply(botmessage[i].message);
-                    } else if (
-                        botmessage[i].type === TelegramResponseType.Card
-                    ) {
-                        if (botmessage[i].image) {
-                            console.log(`image url: ${botmessage[i].image}`);
-                            ctx.replyWithPhoto(
-                                {
-                                    url: botmessage[i].image,
-                                },
-                                {
-                                    caption: botmessage[i].text,
-                                    parse_mode: "Markdown",
-                                    ...botmessage[i].buttons,
-                                }
-                            );
-                        } else {
-                            ctx.sendMessage(
-                                botmessage[i].text,
-                                botmessage[i].buttons
-                            );
+    if (botResponses && botResponses?.length) {
+        botResponses.forEach((response, indx) => {
+            if (response.type === TelegramResponseType.Text) {
+                if (response.text) {
+                    ctx.replyWithHTML(response.text!);
+                }
+            } else if (response.type === TelegramResponseType.Card) {
+                if (response.image) {
+                    console.log(`image url: ${response.image}`);
+
+                    ctx.replyWithPhoto(
+                        {
+                            url: response.image.url,
+                        },
+                        {
+                            caption: response.text,
+                            parse_mode: "Markdown",
+                            ...response.buttons,
                         }
-                    }
-                }, 1000 * i);
-            }, 500 * i);
-        }
+                    );
+                } else {
+                    if (response.text)
+                        ctx.replyWithHTML(response.text, response.buttons);
+                }
+            }
+        });
     }
 }

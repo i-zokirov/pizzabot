@@ -17,8 +17,22 @@ export async function startController(ctx: Context) {
     console.log(user);
     const sessionId = uuidv4();
     sessions.set(ctx.from!.username, sessionId);
+    // ctx.replyWithHTML(
+    //     'This text is <b>bold</b> \n <i>italic</i> <span class="tg-spoiler" style="color: blue; text-decoration: underline;">styled</span>'
+    // );
+    ctx.replyWithHTML("simple text");
+    // ctx.replyWithHTML(
+    //     `This is an example of <code>const keyboard = Markup.keyboard([
+    //     Markup.button.callback("Menu", "open-menu"),
+    //     Markup.button.callback("Buyurtmalarim", "open-orders"),
+    // ]);</code> formatting`
+    // );
+    // ctx.replyWithHTML(`<pre>This text will be preformatted</pre>`);
+    // ctx.replyWithHTML(`This text is <s>struck through</s>`);
+    // ctx.replyWithHTML(`This text is <del>deleted</del>`);
+    // ctx.replyWithHTML(`This text is <ins>inserted</ins>`);
 
-    ctx.sendMessage("Menu", keyboard);
+    // ctx.sendMessage("Menu", keyboard);
     // const botmessage = await executeQuery(
     //     "TELEGRAM_WELCOME",
     //     sessionId,

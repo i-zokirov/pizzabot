@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { executeQuery } from "../dialogflow";
 import { Message } from "telegraf/typings/core/types/typegram";
 import { DlQueryType } from "../../enums";
+import { BotResponse } from "../../interfaces/index";
 
 export async function handleMessage(ctx: Context) {
     try {
@@ -19,50 +20,43 @@ export async function handleMessage(ctx: Context) {
                 sessions.set(ctx.from!.username, sessionId);
             }
             console.log(`Session ID : ${sessionId}`);
-            const botmessage = await executeQuery(
+            ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
+            const botResponses: BotResponse[] | undefined = await executeQuery(
                 userInput,
                 sessionId,
                 DlQueryType.Text
             );
 
-            console.log(botmessage);
-            if (botmessage?.length) {
-                for (let i = 0; i < botmessage.length; i++) {
-                    setTimeout(() => {
-                        ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
-                        setTimeout(() => {
-                            ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
-                            if (
-                                botmessage[i].type === TelegramResponseType.Text
-                            ) {
-                                ctx.reply(botmessage[i].message);
-                            } else if (
-                                botmessage[i].type === TelegramResponseType.Card
-                            ) {
-                                if (botmessage[i].image) {
-                                    console.log(
-                                        `image url: ${botmessage[i].image}`
-                                    );
-                                    ctx.replyWithPhoto(
-                                        {
-                                            url: botmessage[i].image,
-                                        },
-                                        {
-                                            caption: botmessage[i].text,
-                                            parse_mode: "Markdown",
-                                            ...botmessage[i].buttons,
-                                        }
-                                    );
-                                } else {
-                                    ctx.sendMessage(
-                                        botmessage[i].text,
-                                        botmessage[i].buttons
-                                    );
+            console.log(botResponses);
+
+            if (botResponses && botResponses?.length) {
+                botResponses.forEach((response, indx) => {
+                    if (response.type === TelegramResponseType.Text) {
+                        if (response.text) {
+                            ctx.replyWithHTML(response.text);
+                        }
+                    } else if (response.type === TelegramResponseType.Card) {
+                        if (response.image) {
+                            console.log(`image url: ${response.image}`);
+                            ctx.replyWithPhoto(
+                                {
+                                    url: response.image.url,
+                                },
+                                {
+                                    caption: response.text,
+                                    parse_mode: "Markdown",
+                                    ...response.buttons,
                                 }
-                            }
-                        }, 1000 * i);
-                    }, 500 * i);
-                }
+                            );
+                        } else {
+                            if (response.text)
+                                ctx.replyWithHTML(
+                                    response.text,
+                                    response.buttons
+                                );
+                        }
+                    }
+                });
             }
         }
     } catch (error) {

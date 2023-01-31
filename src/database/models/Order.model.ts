@@ -1,7 +1,7 @@
 import { Schema, model, Types } from "mongoose";
 
 export interface IOrderItem {
-    name: string;
+    name?: string;
     qty: number;
     price: number;
     product: Types.ObjectId;
@@ -9,19 +9,19 @@ export interface IOrderItem {
 
 export enum PaymentMethod {
     Online = "Online",
-    Cash = "Cash",
+    Cash = "Naqt pul",
 }
 
 export enum OrderStatus {
-    Placed = "Placed",
-    Ready = "Ready",
-    Dispatched = "Dispatched",
-    Delivered = "Delivered",
+    Placed = "Qabul qilindi",
+    Ready = "Tayyor",
+    Dispatched = "Yuborildi",
+    Delivered = "Yetkizib berildi",
 }
 
 export interface IOrder {
     _id?: Types.ObjectId;
-    user: Types.ObjectId;
+    user: number;
     orderItems: IOrderItem[];
     orderItemsPrice: number;
     shippingPrice: number;
@@ -32,11 +32,13 @@ export interface IOrder {
     isDelivered: boolean;
     daliveredOn?: Date;
     status: OrderStatus;
+    chatId: number;
+    userConfirmed: boolean;
 }
 
 const orderSchema = new Schema<IOrder>({
     user: {
-        type: Schema.Types.ObjectId,
+        type: Number,
         required: true,
         ref: "User",
     },
@@ -68,7 +70,7 @@ const orderSchema = new Schema<IOrder>({
     paymentMethod: {
         type: String,
         required: true,
-        enum: ["Online", "Cash"],
+        enum: ["Online", "Naqt pul"],
         default: PaymentMethod.Cash,
     },
     isPaid: {
@@ -90,8 +92,14 @@ const orderSchema = new Schema<IOrder>({
     status: {
         type: String,
         required: true,
-        enum: ["Placed", "Ready", "Dispatched", "Delivered"],
+        enum: ["Qabul qilindi", "Tayyor", "Yuborildi", "Yetkizib berildi"],
         default: OrderStatus.Placed,
+    },
+    chatId: Number,
+    userConfirmed: {
+        type: Boolean,
+        required: true,
+        default: false,
     },
 });
 const Order = model<IOrder>("Order", orderSchema);

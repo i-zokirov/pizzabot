@@ -1,24 +1,26 @@
 import { TelegramResponseType } from "../enums";
-import { FulfillmentMessage } from "../interfaces";
+import { BotResponse, FulfillmentMessage } from "../interfaces";
+import { Struct } from "pb-util";
 import { Markup } from "telegraf";
-import { value, Value } from "pb-util";
 import fulfillments from "./fulfillments";
 
 class Parser {
-    constructor(public messages: FulfillmentMessage[]) {}
-    async parse() {
+    constructor(
+        public messages: FulfillmentMessage[],
+        public parameters?: Struct | undefined
+    ) {}
+    async parse(): Promise<BotResponse[] | []> {
         this.messages = this.messages.filter(
             (msg) => msg.platform === "TELEGRAM"
         );
-        let result: any[] = [];
+        let result: BotResponse[] = [];
         for (let msg of this.messages) {
-            console.log(msg);
             switch (msg.message) {
                 case TelegramResponseType.Text:
                     msg.text?.text?.forEach((txt) =>
                         result.push({
                             type: TelegramResponseType.Text,
-                            message: txt,
+                            text: txt,
                         })
                     );
                     break;
@@ -38,19 +40,23 @@ class Parser {
                     }
 
                     const inlineKeyboard = Markup.inlineKeyboard(buttons);
-                    const response = {
+                    const response: BotResponse = {
                         type: TelegramResponseType.Card,
-                        text: msg.card?.title,
-                        image: msg.card?.imageUri,
+                        text: msg.card!.title ? msg.card!.title : "",
                         buttons: inlineKeyboard,
                     };
+                    if (msg.card?.imageUri) {
+                        response.image = { url: msg.card?.imageUri };
+                    }
                     result.push(response);
                     break;
 
                 case TelegramResponseType.Image:
                     result.push({
                         type: TelegramResponseType.Image,
-                        url: msg.image?.imageUri,
+                        image: {
+                            url: msg.image?.imageUri ? msg.image?.imageUri : "",
+                        },
                     });
                     break;
 
@@ -60,7 +66,12 @@ class Parser {
                         const fulfillment =
                             msg.payload.fields.action.stringValue;
                         if (fulfillment) {
-                            await fulfillments[fulfillment]();
+                            const responses = await fulfillments[fulfillment](
+                                this.parameters
+                            );
+                            if (responses && responses.length) {
+                                result = [...result, ...responses];
+                            }
                         }
                     }
                     break;
