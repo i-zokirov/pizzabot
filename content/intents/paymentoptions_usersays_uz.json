@@ -1,0 +1,67 @@
+[
+  {
+    "id": "74a7dec9-eb4c-4887-b99c-00b5f824d20b",
+    "data": [
+      {
+        "text": "qande to`lemiz",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "651b2e3e-eaf4-4daa-a3f9-dc063bcaca61",
+    "data": [
+      {
+        "text": "to`lovlar qanday amalga oshiriladi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "0ae92aeb-858c-4118-b342-980ecd5cc2b8",
+    "data": [
+      {
+        "text": "qanday to`lov qilinadi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "d9e0b074-4edd-46d6-88fa-c7cb089bda06",
+    "data": [
+      {
+        "text": "Etkazib berishda naqd pul bilan to\u0027lash mumkinmi?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "e96cc2e9-f780-45bb-8549-a1b69f0c7c43",
+    "data": [
+      {
+        "text": "Siz qanday to\u0027lov shakllarini qabul qilasiz?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  }
+]

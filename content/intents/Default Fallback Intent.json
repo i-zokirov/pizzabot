@@ -1,0 +1,48 @@
+{
+  "id": "6db46f11-5dd1-418a-bd88-fa5642cfd871",
+  "name": "Default Fallback Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.unknown",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "platform": "telegram",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "uz",
+          "speech": [
+            "Men sizning iltimosingizni tushunmayapman. Iltimos, savolingizni yana boshqacha tarzda bering.",
+            "Men sizga yordam berishga tayyorman, lekin sizga nima kerakligini tushunmayapman. Iltimos, savolingizni yana boshqacha tarzda bering.",
+            "Kechirasiz, so\u0027rovingizni tushunmadim. Iltimos, savolingizni takrorlay olasizmi?"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "uz",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "telegram": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

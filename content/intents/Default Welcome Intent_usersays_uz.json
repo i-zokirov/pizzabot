@@ -1,0 +1,93 @@
+[
+  {
+    "id": "41fc5823-a399-425f-87ad-3af37c3c6193",
+    "data": [
+      {
+        "text": "Salam bro",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "e66d2a07-e6a4-4c50-9773-c5ce4e4658dd",
+    "data": [
+      {
+        "text": "Salam",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "679f0e7a-1af2-4ece-83ed-d7c3c93bafc9",
+    "data": [
+      {
+        "text": "Yo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "9bc2e69b-a239-41f0-9d40-e7325cf1613c",
+    "data": [
+      {
+        "text": "Hey",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "64480b63-0ee7-42e1-851d-6f9ab6fcbad1",
+    "data": [
+      {
+        "text": "Merhabo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "2464bc11-26d7-4674-91dd-a382caafcc01",
+    "data": [
+      {
+        "text": "Salom",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "d81c4b4e-02b9-4c13-a38c-4819809dde1a",
+    "data": [
+      {
+        "text": "Assalomu alaykum",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  }
+]

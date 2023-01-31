@@ -1,0 +1,136 @@
+[
+  {
+    "id": "ee584f60-bdd5-41f4-956d-8590cf7c2a48",
+    "data": [
+      {
+        "text": "qanchada yetkazib berasiz",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "420b8e37-a219-464c-a6ef-7238b2be3245",
+    "data": [
+      {
+        "text": "qachan keladi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "8c0b762d-be7a-443b-966f-ea9d5d6ec234",
+    "data": [
+      {
+        "text": "Qachon keladi?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "e637648b-942c-471f-b6a3-c642acd3e3ff",
+    "data": [
+      {
+        "text": "pitsalar qanchalik tez yetkizib beriladi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "ad4880ad-5223-46de-a873-efe36eb7a9fe",
+    "data": [
+      {
+        "text": "qanchalik tez yetkazib beriladi?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "6bb6c759-5901-465c-b167-6622db9db25c",
+    "data": [
+      {
+        "text": "pizza",
+        "userDefined": false
+      },
+      {
+        "text": " buyurtmamning yetkazib berish vaqtini bilmoqchiman",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "5f760907-f1e5-4d84-9b32-bcb22110bc70",
+    "data": [
+      {
+        "text": "Mening pitsam qachon yetkazilishini kutishim mumkin?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "32285395-2dbd-40ba-a7fe-d37a8699089f",
+    "data": [
+      {
+        "text": "taxminiy yetkazib berish muddati qancha?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "eaf6b079-9ea9-42c2-b5b6-555e09aa0c00",
+    "data": [
+      {
+        "text": "buyurtma qanchada tayyot bo`ladi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "56afc0a8-dec5-4c1a-a940-895d3b8cf710",
+    "data": [
+      {
+        "text": "Pitsa yetkazib berish uchun qancha vaqt ketadi?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  }
+]

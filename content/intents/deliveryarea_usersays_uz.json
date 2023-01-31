@@ -1,0 +1,54 @@
+[
+  {
+    "id": "91942300-dba5-4e48-8b32-54766d2889e7",
+    "data": [
+      {
+        "text": "toshkentga yetkazib berasizmi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "8aa9f898-6ef0-4e47-bd10-18a8ee555a87",
+    "data": [
+      {
+        "text": "qaysi lokatsiyalarga yetkazib berasiz",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "aee5a309-dc18-4008-9823-6d59cefb0f24",
+    "data": [
+      {
+        "text": "yetkazib berish qanday",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "7e7ef654-db34-4db3-8127-7479f9c0d424",
+    "data": [
+      {
+        "text": "Qayerga yetkazib berasiz?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  }
+]

@@ -42,6 +42,7 @@ export default async function registerOrder(params: Struct | undefined) {
                 userConfirmed: false,
                 contact: `${parameters.contact}`,
                 address: parameters.address as string,
+                isCancelled: false,
             };
             const savedOrder = await Order.create(order);
             const strings = [

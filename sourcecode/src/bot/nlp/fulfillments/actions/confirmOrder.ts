@@ -14,14 +14,16 @@ export default async function confirmOrder(params: Struct | undefined) {
             const responsestrings = [
                 `Buyurtma tasdiqlandi: \n`,
                 `<i>${order.orderItems[0].name} ta ${order.orderItems[0].price}</i>`,
+                `<b>Buyurtma raqami: </b> <code>${order._id}</code>`,
                 `<b>Maxsulot narxi:</b> $${order.orderItems[0].price}`,
                 `<b>Buyurtma tan narxi:</b> $${order.orderItemsPrice}`,
                 `<b>Yetkizib berish narxi:</b> $${order.shippingPrice}`,
                 `<b>Hammasi bo\`lib:</b> $${order.totalPrice}`,
+                `<b>To\`lov usuli:</b> $${order.paymentMethod}`,
                 `<b>Buyurtma egasi:</b> ${user.firstName}`,
                 `<b>Aloqa raqami:</b> ${order.contact}`,
                 `<b>Yetkizib berish manzili:</b> ${order.address}`,
-                `<b>Buyurtma statusi:</b> ${order.status}`,
+                `<b>Buyurtma statusi:</b> <code>${order.status}</code>`,
             ];
             await Order.findByIdAndUpdate(order._id, { userConfirmed: true });
             const response: BotResponse = {

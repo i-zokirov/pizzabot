@@ -36,6 +36,7 @@ export interface IOrder {
     userConfirmed: boolean;
     contact: string;
     address: string;
+    isCancelled: boolean;
 }
 
 const orderSchema = new Schema<IOrder>({
@@ -107,6 +108,11 @@ const orderSchema = new Schema<IOrder>({
     },
     chatId: Number,
     userConfirmed: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
+    isCancelled: {
         type: Boolean,
         required: true,
         default: false,

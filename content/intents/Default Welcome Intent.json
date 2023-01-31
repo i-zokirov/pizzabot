@@ -1,0 +1,71 @@
+{
+  "id": "5a5efbcf-2636-4345-a0be-d8db75e273d8",
+  "name": "Default Welcome Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.welcome",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "platform": "telegram",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "uz",
+          "speech": [
+            "Salom, Men pitssalar haqida ma\u0027lumot berishga yoki sizning pitsa buyurtmangizni qilishga tayyorman."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "telegram",
+          "title": "Bugun Menuda nimalar borligini ko`rishni istaysizmi?",
+          "buttons": [
+            {
+              "postback": "open-menu",
+              "text": "Ha"
+            },
+            {
+              "postback": "open-help-menu",
+              "text": "Yo`q, rahmat"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "uz",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "uz",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "telegram": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "WELCOME"
+    },
+    {
+      "name": "TELEGRAM_WELCOME"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,47 @@
+{
+  "id": "cd55a648-8297-4e52-8ef0-8200f863aa8c",
+  "name": "deliveryarea",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "platform": "telegram",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "uz",
+          "speech": [
+            "Biz quyidagi hududlarga yetkazib beramiz: Toshkent, Andijon, Farg`ona, Namangan. Agar sizning joylashuvingiz yetkazib berish hududimizdan tashqarida bo\u0027lsa, iltimos, bizga xabar bering.",
+            "Hozircha biz faqat  Toshkent, Andijon, Farg`ona, Namangan viloyatlariga yetkazib beramiz. Bizni tanlaganingiz uchun rahmat!"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "uz",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "telegram": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

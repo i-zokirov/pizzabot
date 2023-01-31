@@ -1,0 +1,218 @@
+[
+  {
+    "id": "997bc7a7-6c53-46bd-bf02-39478c89cbad",
+    "data": [
+      {
+        "text": "menyuni ko‘rmoqchiman",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "dcd032c6-90a1-4777-9e27-ce32e04b56ce",
+    "data": [
+      {
+        "text": "men pitssa uchun menyuni ko‘rmoqchiman.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "f7c14832-a11e-42bf-b94f-266256af25ff",
+    "data": [
+      {
+        "text": "Siz taklif qiladigan har xil turdagi pitssalar qanday?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "e5be2c6b-0c3c-4e53-bc6b-a3e7a6aeaec2",
+    "data": [
+      {
+        "text": "qanday pitsalar bor?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "5d294bd7-e591-4b71-b03b-c1016be12985",
+    "data": [
+      {
+        "text": "Qanaqa variantlar bor",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "30023974-5893-4866-8d0b-fdf878f760d9",
+    "data": [
+      {
+        "text": "Bugun menyuda qanday pitsa borligini ayta olasizmi?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "992a57dd-97f0-441e-b956-86f9b8457f45",
+    "data": [
+      {
+        "text": "Bugungi kunda qanday pitsa variantlari mavjud?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "fd3fb187-3d92-4f3e-9778-551d1fa01eab",
+    "data": [
+      {
+        "text": "Bugungi kunda pitssa uchun qanday variantlaringiz bor?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "d0e8a9e6-ee32-4762-b29b-8d701156a841",
+    "data": [
+      {
+        "text": "Bugun qanday pitssalaringiz bor?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "f92a923a-8bf1-48b4-a6da-89a5eaf1bb3b",
+    "data": [
+      {
+        "text": "Bugun menyuda nima bor?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "9277deee-90b4-43bd-bc8d-a4c5330236d5",
+    "data": [
+      {
+        "text": "pizza",
+        "userDefined": false
+      },
+      {
+        "text": " burtma",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "33c38e65-98e8-4ba5-9292-e7cd625b50dd",
+    "data": [
+      {
+        "text": "pitsa buyurtma",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "0cc7f951-cfc9-49b5-8b28-2078bdc39d9d",
+    "data": [
+      {
+        "text": "pitsa zakaz",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "27be3834-351b-43ad-949e-25e8bffc9cb0",
+    "data": [
+      {
+        "text": "pizza",
+        "userDefined": false
+      },
+      {
+        "text": " zakaz qil",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "611e98c6-02cd-462c-af81-7e4ec195e5b6",
+    "data": [
+      {
+        "text": "qandey qilib pitsa olsam bo`ladi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "0d69dad7-a2d2-41d7-bf31-24bdadb110ce",
+    "data": [
+      {
+        "text": "men pitsa olmoqchiman",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  }
+]

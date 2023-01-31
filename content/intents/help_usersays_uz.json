@@ -1,0 +1,67 @@
+[
+  {
+    "id": "6fd270f9-aec5-40be-9a5a-ad003158b4a4",
+    "data": [
+      {
+        "text": "Men sotib olishni bilmayman",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "a29e602c-6cea-4b7c-9b08-3c9aa0687887",
+    "data": [
+      {
+        "text": "Men pitsani sotib olishni bilmayman",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "b55d8b6c-a0c3-4729-98b8-d7faf8ede9ea",
+    "data": [
+      {
+        "text": "Menga yordam kerak",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "6f02ffcd-3263-4c90-966f-4022c61639c8",
+    "data": [
+      {
+        "text": "Yordam kerak",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  },
+  {
+    "id": "829d295a-1405-4324-a4dc-2ee308117bc5",
+    "data": [
+      {
+        "text": "Yordam",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "uz",
+    "updated": 0
+  }
+]

@@ -14,7 +14,7 @@ export default async function openMenu(): Promise<BotResponse[] | void> {
                     buttons: Markup.inlineKeyboard([
                         Markup.button.callback(
                             "Buyurtma",
-                            `add-to-cart:product:${product.id}`
+                            `placeorder:product:${product.id}`
                         ),
                     ]),
                     image: {
@@ -22,7 +22,10 @@ export default async function openMenu(): Promise<BotResponse[] | void> {
                     },
                 };
             });
-            return responses;
+            return [
+                { type: TelegramResponseType.Text, text: `Bugungi menu da:` },
+                ...responses,
+            ];
         }
     } catch (error) {
         console.error(`Error in constructing response`);
