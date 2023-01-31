@@ -21,7 +21,7 @@ export enum OrderStatus {
 
 export interface IOrder {
     _id?: Types.ObjectId;
-    user: number;
+    user: Types.ObjectId;
     orderItems: IOrderItem[];
     orderItemsPrice: number;
     shippingPrice: number;
@@ -34,11 +34,13 @@ export interface IOrder {
     status: OrderStatus;
     chatId: number;
     userConfirmed: boolean;
+    contact: string;
+    address: string;
 }
 
 const orderSchema = new Schema<IOrder>({
     user: {
-        type: Number,
+        type: Schema.Types.ObjectId,
         required: true,
         ref: "User",
     },
@@ -54,6 +56,14 @@ const orderSchema = new Schema<IOrder>({
             },
         },
     ],
+    contact: {
+        type: String,
+        required: true,
+    },
+    address: {
+        type: String,
+        required: true,
+    },
     orderItemsPrice: {
         type: Number,
         required: true,

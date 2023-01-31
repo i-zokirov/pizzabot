@@ -1,14 +1,15 @@
 import { Schema, model, Types } from "mongoose";
 
 export interface IUser {
-    _id: number;
+    _id?: Types.ObjectId;
     firstName?: string;
     lastName?: string;
     username: string;
+    telegramId: number;
 }
 
 const userSchema = new Schema<IUser>({
-    _id: {
+    telegramId: {
         type: Number,
         required: true,
         unique: true,

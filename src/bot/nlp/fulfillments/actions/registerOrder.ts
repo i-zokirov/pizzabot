@@ -4,17 +4,17 @@ import Order, {
     IOrder,
     OrderStatus,
     PaymentMethod,
-} from "../../../database/models/Order.model";
-import Product from "../../../database/models/Product.model";
-import User from "../../../database/models/User.model";
-import { TelegramResponseType } from "../../enums";
-import { BotResponse } from "../../interfaces";
+} from "../../../../database/models/Order.model";
+import Product from "../../../../database/models/Product.model";
+import { TelegramResponseType } from "../../../enums";
+import { BotResponse } from "../../../interfaces";
+import findUser from "../../dbfunctions/findUser";
 
-export default async function confirmOrder(params: Struct | undefined) {
+export default async function registerOrder(params: Struct | undefined) {
     if (params) {
         const parameters = struct.decode(params);
         const product = await Product.findById(parameters.product);
-        const user = await User.findById(parameters.userId);
+        const user = await findUser(parameters.userId as string);
         if (user && product) {
             const shippingPrice = 0;
 
@@ -29,7 +29,7 @@ export default async function confirmOrder(params: Struct | undefined) {
             const orderItemsPrice = product.price * orderItems[0].qty;
             const totalPrice = orderItemsPrice + shippingPrice;
             const order: IOrder = {
-                user: user!._id,
+                user: user._id,
                 orderItems,
                 orderItemsPrice,
                 shippingPrice,
@@ -40,6 +40,8 @@ export default async function confirmOrder(params: Struct | undefined) {
                 status: OrderStatus.Placed,
                 chatId: parameters.chatId as number,
                 userConfirmed: false,
+                contact: `${parameters.contact}`,
+                address: parameters.address as string,
             };
             const savedOrder = await Order.create(order);
             const strings = [

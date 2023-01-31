@@ -66,6 +66,7 @@ class Parser {
                         const fulfillment =
                             msg.payload.fields.action.stringValue;
                         if (fulfillment) {
+                            console.log(fulfillment);
                             const responses = await fulfillments[fulfillment](
                                 this.parameters
                             );

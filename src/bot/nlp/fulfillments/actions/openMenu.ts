@@ -1,7 +1,7 @@
 import { Markup } from "telegraf";
-import { TelegramResponseType } from "../../enums";
-import { BotResponse } from "../../interfaces";
-import getProducts from "../dbfunctions/getProducts";
+import { TelegramResponseType } from "../../../enums";
+import { BotResponse } from "../../../interfaces";
+import getProducts from "../../dbfunctions/getProducts";
 
 export default async function openMenu(): Promise<BotResponse[] | void> {
     try {
