@@ -4,6 +4,7 @@ import { Struct } from "pb-util";
 import registerOrder from "./actions/registerOrder";
 import confirmOrder from "./actions/confirmOrder";
 import rejectOrder from "./actions/rejectOrder";
+import checkOrderStatus from "./actions/checkOrderStatus";
 
 const fulfillments: {
     [x: string]: (
@@ -14,6 +15,7 @@ const fulfillments: {
     registerorder: registerOrder,
     orderconfirmed: confirmOrder,
     rejectorder: rejectOrder,
+    checkorderstatus: checkOrderStatus,
 };
 
 export default fulfillments;

@@ -39,7 +39,9 @@ class Parser {
                         }
                     }
 
-                    const inlineKeyboard = Markup.inlineKeyboard(buttons);
+                    const inlineKeyboard = Markup.inlineKeyboard(buttons, {
+                        columns: 2,
+                    });
                     const response: BotResponse = {
                         type: TelegramResponseType.Card,
                         text: msg.card!.title ? msg.card!.title : "",
