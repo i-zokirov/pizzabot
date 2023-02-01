@@ -1,12 +1,12 @@
 import { Context } from "telegraf";
-import { TelegramResponseType } from "../../enums";
-import { v4 as uuidv4 } from "uuid";
 import { executeQuery } from "../dialogflow";
 import { CallbackQuery } from "telegraf/typings/core/types/typegram";
 import { DlQueryType } from "../../enums";
 import { BotResponse } from "../../interfaces";
 import * as protos from "@google-cloud/dialogflow/build/protos/protos";
 import { struct } from "pb-util";
+import manageUserSession from "../../core/manageUserSession";
+import sendBotResponses from "../../core/sendBotResponses";
 
 export async function callbackController(ctx: Context) {
     let callbackEvent = (ctx.callbackQuery! as CallbackQuery.DataQuery).data;
@@ -24,14 +24,7 @@ export async function callbackController(ctx: Context) {
 
     ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
     console.log(`Callback event : ${callbackEvent}`);
-    let sessionId;
-
-    if (sessions.get(ctx.from?.username)) {
-        sessionId = sessions.get(ctx.from?.username);
-    } else {
-        sessionId = uuidv4();
-        sessions.set(ctx.from?.username, sessionId);
-    }
+    const sessionId = manageUserSession(ctx.from?.username as string);
     console.log(`Session ID : ${sessionId}`);
     params.sessionId = sessionId;
     params = struct.encode(params);
@@ -41,31 +34,5 @@ export async function callbackController(ctx: Context) {
         DlQueryType.Event,
         params as protos.google.protobuf.IStruct
     );
-    if (botResponses && botResponses?.length) {
-        botResponses.forEach((response, indx) => {
-            if (response.type === TelegramResponseType.Text) {
-                if (response.text) {
-                    ctx.replyWithHTML(response.text!);
-                }
-            } else if (response.type === TelegramResponseType.Card) {
-                if (response.image) {
-                    console.log(`image url: ${response.image}`);
-
-                    ctx.replyWithPhoto(
-                        {
-                            url: response.image.url,
-                        },
-                        {
-                            caption: response.text,
-                            parse_mode: "Markdown",
-                            ...response.buttons,
-                        }
-                    );
-                } else {
-                    if (response.text)
-                        ctx.replyWithHTML(response.text, response.buttons);
-                }
-            }
-        });
-    }
+    sendBotResponses(ctx, botResponses);
 }

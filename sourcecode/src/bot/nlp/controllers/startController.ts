@@ -1,10 +1,10 @@
-import { Context, Markup } from "telegraf";
-import { TelegramResponseType } from "../../enums";
-import { v4 as uuidv4 } from "uuid";
+import { Context } from "telegraf";
 import { executeQuery } from "../dialogflow";
 import { DlQueryType } from "../../enums";
 import getUser from "../dbfunctions/getUser";
 import { TelegramUser } from "../../interfaces";
+import manageUserSession from "../../core/manageUserSession";
+import sendBotResponses from "../../core/sendBotResponses";
 
 // const keyboard = Markup.keyboard([
 //     Markup.button.callback("Menu", "open-menu"),
@@ -17,12 +17,8 @@ import { TelegramUser } from "../../interfaces";
 
 export async function startController(ctx: Context) {
     ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
-    console.log(ctx.from);
     const user = await getUser(ctx.from as TelegramUser);
-    console.log(user);
-    const sessionId = uuidv4();
-    sessions.set(ctx.from!.username, sessionId);
-
+    const sessionId = manageUserSession(ctx.from?.username as string);
     // ctx.replyWithHTML(
     //     'This text is <b>bold</b> \n <i>italic</i> <span class="tg-spoiler" style="color: blue; text-decoration: underline;">styled</span>'
     // );
@@ -44,33 +40,5 @@ export async function startController(ctx: Context) {
         sessionId,
         DlQueryType.Event
     );
-    if (botResponses && botResponses?.length) {
-        botResponses.forEach(async (response, indx) => {
-            setTimeout(() => {
-                if (response.type === TelegramResponseType.Text) {
-                    if (response.text) {
-                        ctx.replyWithHTML(response.text);
-                    }
-                } else if (response.type === TelegramResponseType.Card) {
-                    if (response.image) {
-                        console.log(`image url: ${response.image}`);
-                        ctx.replyWithPhoto(
-                            {
-                                url: response.image.url,
-                            },
-                            {
-                                caption: response.text,
-                                parse_mode: "Markdown",
-                                ...response.buttons,
-                            }
-                        );
-                    } else {
-                        if (response.text)
-                            ctx.replyWithHTML(response.text, response.buttons);
-                    }
-                }
-                ctx.telegram.sendChatAction(ctx.chat!.id, "typing");
-            }, 300 * indx);
-        });
-    }
+    sendBotResponses(ctx, botResponses);
 }
