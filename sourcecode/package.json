@@ -1,10 +1,11 @@
 {
     "name": "pizzabot",
     "version": "1.0.0",
-    "description": "Telegram Bot built using Telegraf.js and Dialogflow ES API for natural language processing",
+    "description": "Telegram bot that can process natural human language and place pizza orders. Built with Telegraf.js and Dialogflow ES API integration.",
     "main": "index.js",
     "scripts": {
         "build": "tsc",
+        "start": "node dist/index",
         "dev": "nodemon dist/index",
         "seed:products": "node dist/database/seed/products"
     },
